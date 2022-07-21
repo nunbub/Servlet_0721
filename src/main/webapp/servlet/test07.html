@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<title>주문</title>
+</head>
+<body>
+	
+	<form method="get" action="/servlet/text07">
+		<div class="container">
+			<h2>주문</h2>
+			
+			<label>주소</label><br> 
+			<input type="text" class="col-6 form-control" name="address">
+			
+			<label>결제카드</label><br> 
+			<input type="text" class="col-6 form-control" name="card">
+			
+			<label>가격</label><br> 
+			<input type="text" class="col-6 form-control" name="price">
+			
+			<button class="btn btn-primary">주문</button>
+			
+		</div>
+	</form>
+</body>
+</html>
