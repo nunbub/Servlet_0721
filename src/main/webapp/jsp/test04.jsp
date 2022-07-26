@@ -18,15 +18,15 @@
 	int number2 = Integer.parseInt(request.getParameter("number2"));
 	String operator = request.getParameter("operator");
 	
-	String result = null;
-	if(operator.equals("+")){
-		result = number1 + " + " + number2 + " = " + (number1 + number2); 
+	double result = 0;
+	if(operator.equals("+")){		 
+		result = number1 + number2;
 	}else if(operator.equals("-")){
-		result = number1 + " - " + number2 + " = " + (number1 - number2); 
+		result = number1 - number2; 
 	}else if(operator.equals("X")){
-		result = number1 + " * " + number2 + " = " + (number1 * number2); 
+		result = number1 * number2; 
 	}else {
-		result = number1 + " / " + number2 + " = " + (double)(number1 / number2);
+		result = (double)(number1 / number2);
 	}
 	
 	
@@ -34,7 +34,7 @@
 	
 	<div>
 		<h2>계산 결과</h2>
-		<div class="display-3"><%= result %></div>
+		<div class="display-3"><%= number1 + " " + operator + " " + number2 + " = "%> <span class="text-primary"><%= result %></span></div>
 	</div>	
 
 </body>
