@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.*" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,37 +10,27 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<title>자바 제어문 사용하기 1</title>
+<title>test07 input</title>
 </head>
 <body>
-	<%
-		List<String> goodsList = Arrays.asList(new String[]{ 
-	    	"저지방 우유", "요플레 4개", "딸기 1팩", "삼겹살 300g", "생수 6개", "주방 세제"
-		});
-	%>
-		<div class="container">
-			<h1 class="text-center">장 목록</h1>
+
+	<div class="container">
+		
+		<h1>메뉴 검색</h1>
 			
-			<table class="table text-center">
-				<thead>
-					<tr>
-						<th>번호</th>
-						<th>품목</th>
-					</tr>
-				</thead>		
-			<% for(int i = 0; i < goodsList.size(); i++){%>
-			 	
-				<tbody>
-					<tr>
-					  	<td><%= i + 1%></td>
-					  	<td><%= goodsList.get(i) %></td>
-					</tr>	
-			 	</tbody>	
-			 <%} %>	
-			 	
-			 	
+		<form method="get" action="/jsp/test07.jsp">
+			<div class="d-flex">
+				<input type="text" class="form-control col-3" name="menu">
+				<label><input type="checkbox" name="pointFilter" value="true"> 4점 이하 제외</label>		
+			</div>
+		
+			<button type="submit" class="btn btn-success">검색</button>
+		
+		</form>	
+		
 			
-			</table>
-		</div>
+		
+	</div>
+
 </body>
 </html>
