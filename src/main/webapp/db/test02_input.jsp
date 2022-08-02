@@ -17,15 +17,11 @@
 	<div class="container">
 		<div class="display-4 font-weight-bold">즐겨찾기 추가</div>
 		<form method="post" action="/db/test02/insert">
-			<div class="mt-3 mb-3">
-				<label>사이트 명 : </label><br>
-				<input type="text" name="name" class="form-control col-6">
-			</div>
-			<div class="mt-3 mb-3">
-				<label>사이트 주소 : </label><br>
-				<input type="text" name="url" class="form-control col-10">
-			</div>
 			
+				<label class="w-25">사이트 명 : </label><input type="text" name="site" class="form-control col-6">
+						
+				<label class="w-30">사이트 주소 : </label><input type="text" name="url" class="form-control col-10"><br>
+						
 			<button type="submit" class="btn btn-success"> 추가 </button>
 		
 		</form>

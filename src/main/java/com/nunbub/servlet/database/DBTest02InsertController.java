@@ -15,7 +15,7 @@ public class DBTest02InsertController extends HttpServlet{
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
-		String name = request.getParameter("name");
+		String site = request.getParameter("site");
 		String url = request.getParameter("url");
 		
 		MysqlService mysqlService = MysqlService.getInstance();
@@ -24,9 +24,9 @@ public class DBTest02InsertController extends HttpServlet{
 		String query = "INSERT INTO `website`\r\n"
 				+ "(`name`, `url`, `createdAt`, `updatedAt`)\r\n"
 				+ "VALUE\r\n"
-				+ "('" + name +"', '" + url + "', now(), now())";
+				+ "('" + site +"', '" + url + "', now(), now())";
 		
-		int count = mysqlService.update(query);
+		mysqlService.update(query);
 		
 		mysqlService.disConnect();
 		
