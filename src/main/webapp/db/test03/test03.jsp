@@ -23,8 +23,11 @@
 
 	mysqlService.connect();
 	
-	String query = "SELECT * FROM `used_goods`;";
-	
+	String query = "SELECT * FROM `seller` \r\n"
+				+ "JOIN `used_goods`\r\n"
+				+ "ON seller.id = used_goods.sellerId \r\n"
+				+ "ORDER BY seller.id DESC;\r\n";
+			
 	
 	ResultSet resultSet = mysqlService.select(query);
 	
@@ -36,21 +39,17 @@
 		<jsp:include page="header.jsp" />
 		<jsp:include page="nav.jsp" />
 		
-		<section class="d-flex flex-wrap justify-content-between">
-			<%while(resultSet.next()) {%>
-			<div style="border:2px solid #ff7f50" class="p-2 mt-2">
-			<%if(resultSet.getString("picture") != null) {%>
-					<image width="250" src="<%= resultSet.getString("picture")%>">
-				<%}else{%>
-					<image width="250" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACgCAMAAACBpqFQAAAAMFBMVEXu7u6ZmZmurq7Z2dnDw8Pe3t7Ozs6+vr6enp7p6enJycmpqanj4+Ojo6O5ubmzs7NLxFgzAAAB2klEQVR4nO3X3XLCIBCGYZa/BEjM/d9tWYgprXbGHtS25n0OVCLj6De7YTUGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPAvTHZc2WlYRBs+7w77pZS9dz/7xf4iK+NKxui8XPMIm8yXpb5w/VKYpRqDfW0p+qjPGla0TehhTW2Rh7BqNmWVko6wVokprHJTeC+q1UZZelheGtfDsm0Rh7AmXV2ktt6lX5JSH7L4X/wBz7RKXqYezZ6Ku4bV316GsKzUoopi90SNmbWorMTf+vbP5doNp8gXYWW5mCEsX3cne2zS4KRIK68ziK2Ftlo/98IKvYCOsNIstWs3c4Rl3NbuaucQNJWawd3K0vvZHMbTME17NrrJj07RiVY2X7S8eljZuXwNK84So6b1HtZB5ywZ2Xsf/mrSVn+ptuLNaVhzitqn6xiWjq7T1MdUNzrN9NAeNSzXW2rplZV1+jTxQ2XpLmvNPjmYPpfZ80ylu4cm+D572Xp8pr5t1qzO0YOjR8PyfrWLtJHiuo2whsVNGxZZe1pS9H5FWMPicxvWv86ptGtnOgq/L+oBkJ3+/9blmYYsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4EneAHYKB+xqekqbAAAAAElFTkSuQmCC">
-				<%} %>
-				<div><%= resultSet.getString("title") %></div>
-				<div><%= resultSet.getInt("price") %>원</div>				
-				<div><%= resultSet.getString("sellerId")%></div>
-			</div>
+		<section>
+			<div class="d-flex flex-wrap">
+			<% while(resultSet.next()){ %>
+				<div style="border:1.5px solid #ff7f50;" class="m-3 p-2">
+					<div><image width="250" src="<%= resultSet.getString("picture")%>"></div>
+					<div><%= resultSet.getString("title") %></div>
+					<div><%= resultSet.getInt("price") %></div>
+					<div><%= resultSet.getString("nickname") %></div>
+				</div>
 			<%} %>
-		
-		
+			</div>
 		</section>
 		
 		<jsp:include page="footer.jsp" />
